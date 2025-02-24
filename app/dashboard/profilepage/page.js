@@ -1,8 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 import { Button } from '@mui/material';
+<<<<<<< HEAD
 
 import Link from 'next/link';
+=======
+import Link from 'next/link';
+import { signOut } from '@/auth';
+
+
+>>>>>>> test
 
 const ProfilePage = () => {
     return (
@@ -22,7 +29,11 @@ const ProfilePage = () => {
                 }}>
                     <Button className='w-full mb-4' variant='contained' color='error' type='submit'> SignOut</Button>
                 </form>
+<<<<<<< HEAD
                 <Link className='w-full bg-blue-500 text-white rounded-md' href='/dashboard/updateprofile'>Update Profile
+=======
+                <Link className='w-full p-2 bg-blue-500 text-white rounded-md' type='submit' variant="contained" href='/dashboard/updateprofile'>Update Profile
+>>>>>>> test
                 </Link>
             </div>
             
