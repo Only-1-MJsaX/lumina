@@ -1,36 +1,29 @@
 import NextAuth from "next-auth"
 import Google from "next-auth/providers/google"
-import { ZodError } from "zod"
-import Credentials from "next-auth/providers/credentials"
-import { signInSchema } from "./lib/zod"
-// import { saltAndHashPassword } from "@/utils/password"
-// import { getUserFromDb } from "@/utils/db"
+import {FirestoreAdapter} from "@auth/firebase-adapter"
+import { cert } from "firebase-admin/app"
  
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  providers: [Google, Credentials({
-    credentials: {
-      email: {},
-      password: {},
-    },
-    authorize: async (credentials) => {
-      try {
-        let user = null
-
-        const { email, password } = await signInSchema.parseAsync(credentials)
-        const pwHash = saltAndHashPassword(password)
-        user = await getUserFromDb(email, pwHash)
-        if (!user) {
-          throw new Error("Invalid credentials.")
-        }
-        return user
-        } catch (error) {
-          if (error instanceof ZodError) {
-            return null}
-          }
-  },
+  providers: [Google({
     clientId: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 
   })],
+  adapter: FirestoreAdapter({
+    credential: cert({
+      projectId: process.env.AUTH_FIREBASE_PROJECT_ID,
+      clientEmail: process.env.AUTH_FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.AUTH_FIREBASE_PRIVATE_KEY? process.env.AUTH_fIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n') : undefined
+    }),
+  }),
+  pages: {
+    signIn: "/auth/signin",
+  },
+  callbacks: {
+    session: async ({session}) => {
+      
+      return session;
+    },
+  },
 })
