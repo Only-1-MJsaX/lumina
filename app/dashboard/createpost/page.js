@@ -12,7 +12,7 @@ const schema = Yup.object().shape({
     title: Yup.string().required('Title is required'),
     body: Yup.string().required('Body is required')
 })
-const Page = (UserId) => {
+const Page = () => {
     const [opsProgress, setOpsProgress] = useState(false);
     const {handleSubmit, handleChange, values, errors, handleBlur, touched} = useFormik({
         validationSchema: schema,
@@ -20,7 +20,7 @@ const Page = (UserId) => {
             title: '',
             body: ''
         },
-        onSubmit: async () => {
+        onSubmit: async (UserId) => {
             setOpsProgress(true);
             await addDoc (collection(db, 'post'), {
                 user: UserId,

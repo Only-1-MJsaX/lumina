@@ -13,9 +13,8 @@ export default async function SignInPage() {
         <main className='min-h-[320px] flex justify-center bg-gray-300 py-8 px-2 m-4'>
             <article>
                 <div className='w-full md:w-[28em] md:h-[15em] rounded-md bg-white p-4'>
-                    <h1 className='text-2xl text-center mb-[50px]'>Sign Up </h1>
+                    <h1 className='text-2xl text-center mb-[50px]'>Sign in </h1>
 
-                    
                     <div className='flex gap-2 mb-[20px]'>
                         <form
                             action={async () => {
