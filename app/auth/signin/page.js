@@ -2,6 +2,7 @@
 import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
 import { auth, signIn } from '@/auth';
+import { redirect } from "next/navigation";
 
 
 
@@ -9,6 +10,9 @@ import { auth, signIn } from '@/auth';
 export default async function SignInPage() {
     const session = await auth();
     console.log(session);
+    if (session) {
+        redirect('/dashboard/home/home')
+    }
     return (
         <main className='min-h-[320px] flex justify-center bg-gray-300 py-8 px-2 m-4'>
             <article>
