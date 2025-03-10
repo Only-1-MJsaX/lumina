@@ -10,32 +10,21 @@ const year = new Date().getFullYear();
 
 function Footer() {
     return (
-        <footer className='grid grid-cols-3 gap-4 bg-gray-200 p-4 m-4 rounded-b-2xl mb-2'>
-
-            <div className=' '>
-                <p className='text-2xl text-gray-800 font-bold'> Lumina </p>
-                <p className='mt-4'> &copy;{year} Lumina blog </p>
-            </div>
-            <div>
-                <p className='text-md text-gray-700 font-bold'> Head Office:</p>
-                <p className='text-md text-gray-700 mt-4'> Ladoke Akintola Street, Victoria Island, Lagos</p>
-            </div>
-            <div>
-                <ul className='flex gap-4 font-bold mb-4'>
-                    <li><Link href="#" className='text-sm text-gray-600 underline'>Terms of Use</Link></li>
-                    <li><Link href="#" className='text-sm text-gray-600 underline'>Privacy Policy</Link></li>
-                    <li><Link href="#" className='text-sm text-gray-600 underline'>Bug bounty</Link></li>
-                </ul>
-
-                <ul className='flex items-center gap-[50px]'>
-                    <li><Link href="#"><FaXTwitter className='text-2xl' /> </Link></li>
-                    <li><Link href="#"><IoLogoFacebook className='text-2xl' /> </Link></li>
-                    <li><Link href="#"><FaYoutube className='text-2xl' /> </Link></li>
-                    <li><Link href="#"><FaTiktok className='text-2xl' /> </Link></li>
-                </ul>
-
-
-
+        <footer className='bg-gray-200 text-slate-800 p-4'>
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4 p-4">
+                <div className="footer-links flex flex-col md:flex-row gap-4">
+                    <Link href="/about" className='underline'><p>About Us</p></Link>
+                    <Link href="/services" className='underline'><p>Services</p></Link>
+                    <Link href="/contact" className='underline'><p>Contact</p></Link>
+                    <Link href="/privacy-policy" className='underline'><p>Privacy Policy</p></Link>
+                </div>
+                <div className="flex items-center gap-4">
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><FaXTwitter /></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><IoLogoFacebook /></a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"><FaYoutube /></a>
+                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"><FaTiktok /></a>
+                </div>
+                <p className='text-center md:text-left'>&copy; {year} Lumina. All rights reserved.</p>
             </div>
         </footer>
     );
