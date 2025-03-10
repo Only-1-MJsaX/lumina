@@ -29,7 +29,7 @@ export default async function SignInPage() {
                             <button type='submit'
                                 className='w-[26em] h-[3.2em] flex justify-center items-center gap-2 border-b-2 border-blue-500 bg-gray-200 rounded-md '>
                                 <FcGoogle className='text-4xl text-green-500 m-2' />
-                                <span className='text-black text-sm p-2'>continue with Google</span>
+                                <span className='text-black text-sm p-2 m-2'>continue with Google</span>
                             </button>
 
                         </form>
