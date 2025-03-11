@@ -33,7 +33,7 @@ function Header() {
 
                 {/* Navigation Menu */}
                 <ul className={`lg:flex gap-4 items-center transition-all duration-300 
-                    ${menuOpen ? 'absolute top-16 left-0 w-full bg-blue-500 p-4 flex gap-4 flex-col' : 'hidden lg:flex'}`}>
+                    ${menuOpen ? 'absolute top-16 left-0 w-full bg-blue-500 p-4 flex justify-evenly flex-col' : 'hidden lg:flex'}`}>
                     <li><Link href="/dashboard/home/home" className="border border-white rounded-xl p-2 m-4 hover:bg-white hover:text-blue-500 font-bold">Home</Link></li>
                     <li><Link href="/dashboard/createpost" className="border border-white rounded-xl p-2 m-4 hover:bg-white hover:text-blue-500 font-bold">Create Post</Link></li>
                     <li><Link href="/dashboard/post" className="border border-white rounded-xl p-2 m-4 hover:bg-white hover:text-blue-500 font-bold">Posts</Link></li>
